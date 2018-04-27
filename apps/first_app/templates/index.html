@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Belt6</title>
+  </head>
+  <body>
+    <h3> Register below</h3>
+    {% if messages %}
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+    {% endif %}
+  <form action="/register" method="post">
+    {% csrf_token %}
+
+    <label>Name: </label>
+    <input type="text" name="name" placeholder="Name">
+    
+
+
+    <label>Email: </label>
+    <input type="text" name="email" placeholder="Email">
+
+    <label>Password: </label>
+    <input type="password" name="password"  placeholder= "Password">
+
+    <label>Password confirmation: </label>
+    <input type="password" name="confirm_password" placeholder = "Confirm password">
+
+    <!-- Add date of birth entry and validate -->
+
+    <input type="submit" name="register" value="register">
+  </form>
+
+  <h1>Login</h1>
+  <form action="/login" method="post">
+    {% csrf_token %}
+
+    <label>Email: </label>
+    <input type="text" name="email" placeholder="email">
+
+    <label>Password: </label>
+    <input type="password" name="password" placeholder = "Password">
+
+    <input type="submit" name="poke" value="Login">
+  </form>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User Profiler</title>
+  </head>
+  <body>
+    <a href ="/messages">Back to Messages</a> <a href ="/logoutfunc">Logout<a/>
+
+      <h3>Welcome Back:{{user.name}}</h3>
+
+      <h5>You have {{count}} messages below</h5>
+
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+  </body>
+</html>

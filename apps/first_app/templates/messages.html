@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Messages</title>
+  </head>
+  <body>
+    <a href ="/logoutfunc">Logout</a>
+    <h2> Welcome:{{request.session.name}}</h2>
+    <h2>Look at your favorite messages </h2>
+    {% for msgs in messages %}
+    <p>{{msgs.messages.id}} <a href ="/profile/{{others.id}}">Profile</a> <a href ="/delete_msg/{{user.id}}">Unfavorite</a></p>
+    {% endfor %}
+    <input type="submit" name="delete_msg" value="Un_Favorite">
+
+
+    <h3> Other Messages</h3>
+
+    {% for msgs in other_messages %}
+    <p>{{msgs.other_messages}}</p>
+    <p>Message left by: {{others.name}} <a href ="/profile/{{user.id}}">View Their Profile</a></p>
+    <input type="submit" name="add" value="Favorite">
+    {% endfor %}
+
+    <h3>Add a Message</h3>
+
+
+    <form action="/add" method="post">
+      {% csrf_token %}
+    <input type="text" name="messages" placeholder="Add a Message!">
+    <input type="submit" name="add" value="add">
+    </form>
+  </body>
+</html>
